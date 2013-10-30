@@ -7,15 +7,15 @@ The AI simply searches the space of all possible moves, and chooses the highest 
 
 To play, simply compile
 
-    ghc Rules.hs
+    ghc Scrabble.hs
 
 and run as
 
-    ./Rules dictionary.txt
+    ./Scrabble dictionary.txt
 
 By default, the human player makes the opening move; run as
 
-    ./Rules dictionary.txt 2
+    ./Scrabble dictionary.txt 2
 
 if you'd prefer to play second.
 

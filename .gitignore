@@ -7,5 +7,5 @@ cabal-dev
 .virthualenv
 *~
 
-# Compiled executable (name will change soon though)
-Rules
+# Compiled executable
+Scrabble
