@@ -6,6 +6,8 @@ module Bag
 , insert
 , remove
 , empty
+, quantity
+, difference
 ) where
 
 import qualified Data.Map as Map
@@ -35,3 +37,18 @@ remove a bag = case Map.lookup a bag of
 
 empty :: Bag a
 empty = Map.empty
+
+quantity :: (Ord a) => a -> Bag a -> Int
+quantity a bag = case Map.lookup a bag of
+    Just x -> x
+    Nothing -> 0
+
+-- Like a set difference, removes the appropriate number of elements of the second
+-- bag from the first bag, if they are present
+difference :: (Ord a) => Bag a -> Bag a -> Bag a
+difference lft rgt = foldl loop lft (Map.toList rgt)
+  where
+    loop bag (a,c) = case Map.lookup a bag of
+        Nothing -> bag
+        Just x | x > c -> Map.insert a (x-c) bag
+        _ -> Map.delete a bag
